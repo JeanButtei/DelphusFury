@@ -3,10 +3,7 @@ package br.com.buttler.delphusfury.entrypoint.players;
 import br.com.buttler.delphusfury.infra.entities.Player;
 import br.com.buttler.delphusfury.infra.repositories.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("player")
@@ -22,5 +19,10 @@ public class PlayerController {
 
     public Player findPlayerById(long id) {
         return repository.getOne(id);
+    }
+
+    @PostMapping
+    public Player insert(@RequestBody Player player) {
+        return repository.save(player);
     }
 }
