@@ -3,8 +3,10 @@ package br.com.buttler.delphusfury.infra.entities;
 import br.com.buttler.delphusfury.infra.enums.Position;
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+
 @Entity
-public class Player {
+public class Player implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
