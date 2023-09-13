@@ -1,9 +1,8 @@
 package br.com.buttler.delphusfury.entrypoint.players;
 
-import br.com.buttler.delphusfury.infra.entities.Player;
+import br.com.buttler.delphusfury.infra.entities.PlayerEntity;
 import br.com.buttler.delphusfury.infra.repositories.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -14,12 +13,12 @@ public class PlayerController {
     private PlayerRepository repository;
 
     @GetMapping(value = "/{id}")
-    public Player findById(@PathVariable Long id) {
+    public PlayerEntity findById(@PathVariable Long id) {
         return repository.findById(id).orElseThrow(() -> new IllegalArgumentException());
     }
 
     @PostMapping
-    public Player insert(@RequestBody Player player) {
-        return repository.save(player);
+    public PlayerEntity insert(@RequestBody PlayerEntity playerEntity) {
+        return repository.save(playerEntity);
     }
 }

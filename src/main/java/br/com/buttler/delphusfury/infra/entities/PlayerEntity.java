@@ -4,7 +4,8 @@ import br.com.buttler.delphusfury.infra.enums.Position;
 import jakarta.persistence.*;
 
 @Entity
-public class Player {
+@Table(name = "Players")
+public class PlayerEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -13,10 +14,10 @@ public class Player {
     @Enumerated(EnumType.STRING)
     private Position position;
 
-    public Player() {
+    public PlayerEntity() {
     }
 
-    public Player(Long id, String name, Position position) {
+    public PlayerEntity(Long id, String name, Position position) {
         this.id = id;
         this.name = name;
         this.position = position;
