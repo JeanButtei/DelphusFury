@@ -15,6 +15,7 @@ public class PlayerController {
     @GetMapping(value = "/{id}")
     public PlayerEntity findById(@PathVariable Long id) {
         return repository.findById(id).orElseThrow(() -> new IllegalArgumentException());
+        //remover comment, apenas ajustar estrutura projeto
     }
 
     @PostMapping
